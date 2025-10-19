@@ -17,8 +17,8 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="Nastya",
-    author_email="nastya@lnu.edu.ua",
-    url="https://github.com/nastya-username/nastya-sort",
+    author_email="nastavasilik1@gmail.com",
+    url="https://github.com/Nastia2004/nastya-sort-lnu",
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
@@ -26,7 +26,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "nastya-sort=nastya_sort.cli:cli",
+            "sort=nastya_sort.cli:cli",
         ],
     },
     classifiers=[

@@ -1,6 +1,6 @@
 # nastya-sort
 
-Lightweight implementation of Unix `nastya-sort` utility in Python with Click framework.
+Lightweight implementation of Unix `sort` utility in Python with Click framework.
 
 ## Features
 
@@ -15,8 +15,8 @@ Lightweight implementation of Unix `nastya-sort` utility in Python with Click fr
 ### From source
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/nastya-sort.git
-cd nastya-sort
+git clone https://github.com/Nastia2004/nastya-sort-lnu.git
+cd nastya-sort-lnu
 pip install -e .
 ```
 
@@ -50,19 +50,6 @@ sort -r file.txt
 sort -rn numbers.txt
 ```
 
-### Docker Usage
-
-```bash
-# Sort from stdin
-echo -e "3\n1\n2" | docker run -i ghcr.io/YOUR-USERNAME/nastya-sort:latest -n
-
-# Sort file (mount current directory)
-docker run -v $(pwd):/data ghcr.io/YOUR-USERNAME/nastya-sort:latest /data/file.txt
-
-# Show help
-docker run ghcr.io/YOUR-USERNAME/nastya-sort:latest --help
-```
-
 ## Command Options
 
 | Option | Description |
@@ -77,17 +64,17 @@ docker run ghcr.io/YOUR-USERNAME/nastya-sort:latest --help
 
 ```bash
 # Alphabetical sort
-cat names.txt | nastya-sort
+cat names.txt | sort
 
 # Sort and save to file
-nastya-sort input.txt > sorted.txt
+sort input.txt > sorted.txt
 ```
 
 ### Numeric Sorting
 
 ```bash
 # Sort numbers correctly
-echo -e "100\n20\n3\n1000" | nastya-sort -n
+echo -e "100\n20\n3\n1000" | sort -n
 # Output:
 # 3
 # 20
@@ -99,7 +86,7 @@ echo -e "100\n20\n3\n1000" | nastya-sort -n
 
 ```bash
 # Descending order
-echo -e "a\nc\nb" | nastya-sort -r
+echo -e "a\nc\nb" | sort -r
 # Output:
 # c
 # b
@@ -110,13 +97,13 @@ echo -e "a\nc\nb" | nastya-sort -r
 
 ```bash
 # Sort and remove duplicates
-nastya-sort file.txt | uniq
+sort file.txt | uniq
 
 # Sort CSV by second column
-cut -d',' -f2 data.csv | nastya-sort -n
+cut -d',' -f2 data.csv | sort -n
 
 # Count and sort word frequency
-cat text.txt | tr ' ' '\n' | nastya-sort | uniq -c | nastya-sort -rn
+cat text.txt | tr ' ' '\n' | sort | uniq -c | sort -rn
 ```
 
 ## Development
@@ -143,10 +130,10 @@ docker run nastya-sort --help
 
 ```bash
 # Test basic sorting
-echo -e "c\na\nb" | nastya-sort
+echo -e "c\na\nb" | sort
 
 # Test numeric sorting
-echo -e "10\n2\n1" | nastya-sort -n
+echo -e "10\n2\n1" | sort -n
 
 # Test with Docker
 echo -e "3\n1\n2" | docker run -i nastya-sort -n
@@ -175,13 +162,3 @@ nastya-sort/
 ├── README.md             # This file
 └── .gitignore           # Git ignore rules
 ```
-
-## License
-
-MIT License
-
-## Author
-
-Your Name  
-Email: you@example.com  
-GitHub: [@YOUR-USERNAME](https://github.com/YOUR-USERNAME)
