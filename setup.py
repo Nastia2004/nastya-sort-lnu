@@ -1,19 +1,24 @@
 from setuptools import setup, find_packages
 import pathlib
 
+# Read version from __init__.py
 HERE = pathlib.Path(__file__).parent
+version_file = HERE / "nastya_sort" / "__init__.py"
+version = {}
+with open(version_file, "r", encoding="utf-8") as f:
+    exec(f.read(), version)
 
 long_description = (HERE / "README.md").read_text(encoding="utf-8")
 
 setup(
-    name="nastya-sort",
-    version="0.1.0",
+    name="nastya-sort-lnu",  # Унікальне ім'я для PyPI
+    version=version["__version__"],
     description="Simple sort utility implemented in Python with Click",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    author="Your Name",
-    author_email="you@example.com",
-    url="https://github.com/your-username/nastya-sort",
+    author="Nastya",
+    author_email="nastya@lnu.edu.ua",
+    url="https://github.com/nastya-username/nastya-sort",
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
@@ -21,13 +26,20 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            # expose command 'nastya-sort' so user can run `nastya-sort` after pip install
-            "nastya-sort = nastya_sort.cli:cli",
+            "nastya-sort=nastya_sort.cli:cli",
         ],
     },
     classifiers=[
         "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
         "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+        "Environment :: Console",
+        "Topic :: Utilities",
     ],
     python_requires=">=3.8",
+    keywords="sort cli utility unix",
 )
