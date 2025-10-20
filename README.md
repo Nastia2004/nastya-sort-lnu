@@ -112,7 +112,7 @@ cat text.txt | tr ' ' '\n' | sort | uniq -c | sort -rn
 
 ```bash
 # Create virtual environment
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 # Install in development mode
