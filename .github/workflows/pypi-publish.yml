@@ -21,10 +21,18 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install build twine setuptools wheel
+        pip install build twine setuptools wheel black isort
     
+    - name: Run isort
+      run: isort .
+
+    - name: Run black
+      run: black .
+  
+
     - name: Build package
-      run: python -m build
+      run: python -m build 
+      
     
     - name: Publish to PyPI
       env:
@@ -32,3 +40,4 @@ jobs:
         TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
       run: |
         twine upload dist/*
+# викладення мого пакета онлайн у Python Package Index
