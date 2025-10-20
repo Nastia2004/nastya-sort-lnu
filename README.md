@@ -139,13 +139,6 @@ echo -e "10\n2\n1" | sort -n
 echo -e "3\n1\n2" | docker run -i nastya-sort -n
 ```
 
-## CI/CD
-
-This project uses GitHub Actions to automatically:
-- Build Docker images on every push to `main`
-- Run basic tests
-- Push images to GitHub Container Registry
-- Tag images with commit SHA and `latest`
 
 ## Project Structure
 

@@ -33,12 +33,7 @@ def read_lines_from_files(files: List[str]) -> Iterable[str]:
 @click.argument("files", nargs=-1, type=click.Path(exists=False))
 def cli(reverse: bool, numeric: bool, files):
     print('my sort processing')
-    """
-    nastya-sort — lightweight implementation of Unix sort.
-    
-    Reads from FILE(s) or stdin if none provided. 
-    Use -r to reverse, -n for numeric sort.
-    """
+
     lines = list(read_lines_from_files(list(files)))
     
     if numeric:
